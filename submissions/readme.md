@@ -86,7 +86,7 @@ Lastly, for Step 3 I create SQL tables with the defined schemas as specified in 
 
 <br>
 
-## Notebook 3: Data Analytics and Visualizations**
+## Notebook 3: Data Analytics and Visualizations
 
 ### Part 1: SQL Query Analytics
 
