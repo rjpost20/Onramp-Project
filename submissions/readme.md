@@ -61,4 +61,17 @@ The database for this project consists of four tables, the schema for which is p
 
 ## Notebook 1: Data Ingestion
 
+I begin the project by accessing my API.txt file, which is a locally-stored file that contains my API credentials to access the Spotify API. Next, I define my 20 favorite artists, loop through each name in the list of favorite artists with the Spotipy `.search()` function, and create nine separate lists (one for each column in the `artist` table) containing the compiled information for each feature. Lastly, I organize the lists into a dictionary, and create a pandas table by passing in the dictionary.
+
+This process is then repeated for the `album` table, where I obtain the albums of each artist by looping through each `artist_id` using the `.artist_albums()` function. This part is a bit more complicated than the last, as I needed to consider that duplicate albums may be pulled in the process. I implemented a variety of measures to prevent this:
+1. I record the unique album names of each artist (I use a RegEx search to remove any comments in parentheses or square brackets, e.g. "(Remastered)" or "\[Deluxe Edition]". I then check during each loop if the next album is in the duplicate albums list, and skip it if so.
+2. To avoid live-recorded albums (which would result in duplicate songs being added) I skip any album with the word "live" in it (after setting all words in the title to `.lower()` format.
+3. To avoid re-release albums, I skip any albums released after a band's lifecycle when applicable (only for older band's that are no longer producing music, e.g. The Beatles).
+
+Next, I obtain data for the `track` table by looping through each `album_id`. The only measure I used here to prevent duplicate tracks being added is another duplicate tracks list that is checked during each loop through an album.
+
+Lastly, I obtain data for the `track_features` table for each of the tracks obtained from the last step using each `track_id`, and save the pandas tables as `.pkl` files for use in the next notebook.
+
+
+
 
