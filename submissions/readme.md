@@ -72,6 +72,16 @@ Next, I obtain data for the `track` table by looping through each `album_id`. Th
 
 Lastly, I obtain data for the `track_features` table for each of the tracks obtained from the last step using each `track_id`, and save the pandas tables as `.pkl` files for use in the next notebook.
 
+<br>
+
+## Notebook 2: Data Transformation and Storage
+
+I begin this phase of the project by uploading the `.pkl` files containing the pandas tables. I then move on to Part 2 of Step 1 which is handling null / missing value. To start, I create a function to display the `.info()` of each table, a list of the features that contain null values, and the total number of blank values in the dataframe. As it turned out, none of the tables had any null or blank values, so this part of the project was simple.
+
+I then move on to Part 2 of Step 1 which is the deduplication phase. To begin I print each artist and a list of their album names contained in my database, and do a manual review of album names to look for duplicate albums. This was the only part of my project that was truly manual and non-scalable, but I didn't see any way around it as at this point I already implemented a simple duplicate name search in Step 1 and I didn't see a way to automate the deduplication process further. The difficulty in automating this process arises mainly from the fact that compilation albums often carry names that are indistinguishable from original-release studio albums.
+
+After removing the 14 albums containing duplicate songs from the albums, tracks, and track features tables, I move on to removing duplicate songs. To implement this, I search for song names in the database that appear more than once (for any particular artist). I then display a table for each artist that contains their duplicate songs, and record the relevant `track_id`s in a list to drop. One of the benfits of displaying these tables was that they allowed me to see two albums which I missed in the previous step, so I was able to go back and add those to the list of albums to drop. The reason I couldn't skip the last duplicate album search step and go straight to looking for duplicate song names is that comments or notes are often added to the end of song names in duplicate albums.
+
 
 
 
