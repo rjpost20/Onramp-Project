@@ -102,7 +102,7 @@ After loading the pandas `.pkl` file tables and connecting to the `spotify.db` S
 5. Max and min average `track_feature` and `duration_ms` values by album
    - This was a more complicated query that I wrote because I wanted a more granular look at which specific albums were at the extremes for each `track_feature`.
 6. Proportion of `explicit` tracks by artist (measured by percent of songs marked as explicit)
-   - For this query, I was simply curioius which artists had the most explicit music, and whether there was a difference between older and more contemporary artists
+   - For this query, I was simply curious which artists had the most explicit music, and whether there was a difference between older and more contemporary artists.
 7. Median `track_feature` values by artist
    - This is very similar to query 4, but querying median values instead of average values. There is no 'median' function in SQLite, so I had to do quite a few joins and window functions to make it work. The motivation for this query was actually my second visualization, which showed me that a handful of the `track_features` had highly skewed distributions, so computing averages for those values would not be as representative as the median.
 
