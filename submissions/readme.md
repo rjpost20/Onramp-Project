@@ -47,6 +47,7 @@ The database for this project consists of four tables, the schema for which is p
     * 1.4: Average `track_feature` values by artist
     * 1.5: Max and min average `track_feature` and `duration_ms` values by album
     * 1.6: Proportion of `explicit` tracks by artist
+    * 1.7: Median `track_feature` values by artist
   * Part 2: Data Visualizations
     * 2.1: Mean `track_feature` values by `genre`
     * 2.2: Distribution of `track_feature` and `duration_ms` values
