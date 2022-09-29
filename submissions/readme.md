@@ -110,7 +110,7 @@ After loading the pandas `.pkl` file tables and connecting to the `spotify.db` S
 
 I created five visualizations as part of this project. When creating visualizations for insight into data, I always keep in mind the main types of data visualizations and try to use as wide a variety of them as possible. For this project, I use four: ranking, distribution, evolution, and correlation.
 1. Mean scaled `track_feature` values by genre
-   - Similar to query 3, I wanted to look for differences in average track feature values across genres, but in a more visually friendly way. There were a variety of insights I gleaned from this visualization, which are described in the notebook. For this visualization, I condensed the genres in the database down to four, as it would not be practical or particularly insightful to keep the wide-variety of different (often similar) genres that Spotify assigned them.
+   - Similar to query 3, I wanted to look for differences in average track feature values across genres, but in a more visually-friendly way. There were a variety of insights I gleaned from this visualization, which are described in the notebook. For this visualization, I condensed the genres in the database down to four, as it would not be practical or particularly insightful to keep the wide-variety of different (often similar) genres that Spotify assigned them.
 2. Distribution of `track_feature` and `duration_ms` values
    - This one is self-explanatory – I wanted a visualization to show the distributions across values. One of the insights from this visualization, as mentioned, was that many of the features were highly skewed, so taking the median would be a more representative metric than the average for those.
 3. Evolution of artists, visualized
