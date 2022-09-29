@@ -106,14 +106,16 @@ After loading the pandas `.pkl` file tables and connecting to the `spotify.db` S
 7. Median `track_feature` values by artist
    - This is very similar to query 4, but querying median values instead of average values. There is no 'median' function in SQLite, so I had to do quite a few joins and window functions to make it work. The motivation for this query was actually my second visualization, which showed me that a handful of the `track_features` had highly skewed distributions, so computing averages for those values would not be as representative as the median.
 
+### Part 2: Data Visualizations
 
-
-
-
-
-
-
-
-
-
-
+I created five visualizations as part of this project. When creating visualizations for insight into data, I always keep in mind the main types of data visualizations and try to use as wide a variety of them as possible. For this project, I use four: ranking, distribution, evolution, and correlation.
+1. Mean scaled `track_feature` values by genre
+   - Similar to query 3, I wanted to look for differences in average track feature values across genres, but in a more visually friendly way. There were a variety of insights I gleaned from this visualization, which are described in the notebook. For this visualization, I condensed the genres in the database down to four, as it would not be practical or particularly insightful to keep the wide-variety of different (often similar) genres that Spotify assigned them.
+2. Distribution of `track_feature` and `duration_ms` values
+   - This one is self-explanatory – I wanted a visualization to show the distributions across values. One of the insights from this visualization, as mentioned, was that many of the features were highly skewed, so taking the median would be a more representative metric than the average for those.
+3. Evolution of artists, visualized
+   - For this visualization and the next, I am vague in the title because I designed the code to allow the user to choose which artist and genre they want to visualize. This adds another dynamic layer to the visualization and increases the quantity and granularity of insights and understanding of the data which can be obtained. Not to mention, the more interactive you can make data representations, the more compelling and interesting they often will be.
+4. Evolution of genres, visualized
+   - As covered above, the user can choose which genre they want to visualize. Like in the second visualization I condensed the genres down to four. In the `visualization.pdf` file I chose hip hop, but the user could also choose pop, classic rock or dance/electronic.
+5. Correlations between `track_feature` values + `duration_ms` + `followers`
+   - I created this visualization because I was curious about both positive and negative correlations between track features, and particularly between track features and number of followers as well. I describe a number of insights in the notebook, but one cautionary note to keep in mind is that the relatively low volume of data used in the project renders the takeaways and correlations not particularly reliable. Still, many of the correlations were logical and predictable, while for others I would need to use more data before I fully trusted the numbers.
