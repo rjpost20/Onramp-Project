@@ -82,7 +82,7 @@ I then move on to Part 2 of Step 2 which is the deduplication phase. To begin I 
 
 After removing the 14 albums containing duplicate songs from the albums, tracks, and track features tables, I move on to removing duplicate songs. To implement this, I search for song names in the database that appear more than once (for any particular artist). I then display a table for each artist that contains their duplicate songs, and record the relevant `track_id`s in a list to drop. One of the benefits of displaying these tables was that they allowed me to see some albums which I missed in the previous step, so I was able to go back and add those to the list of albums to drop. As an aside, the reason I couldn't skip the previous manual duplicate album search step and go straight to looking for duplicate song names is that comments or notes are often added to the end of song names in duplicate albums (and not always in parentheses or brackets).
 
-Lastly, for Step 3 I create SQL tables with the defined schemas as specified in the instructions, fill them with the data in each associated pandas table, and put organize them under the `spotify.db` file.
+Lastly, for Step 3 I create SQL tables with the defined schemas as specified in the instructions, fill them with the data in each associated pandas table, and organize them under the `spotify.db` file.
 
 <br>
 
