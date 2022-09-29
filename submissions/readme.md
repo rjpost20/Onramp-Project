@@ -1,12 +1,14 @@
 # *Onramp x Vanguard Spotify Project*
 
-<img src="https://github.com/rjpost20/Onramp-Project/blob/main/data/pexels-vishnu-r-nair-1105666.jpg?raw=true">
+<img src="https://github.com/rjpost20/vanguard_de_project_Ryan_Posternak/blob/main/images/pexels-vishnu-r-nair-1105666.jpg?raw=true">
 Image by <a href="https://www.pexels.com/@vishnurnair/" >Vishnu R Nair</a> on <a href="https://www.pexels.com/photo/people-at-concert-1105666/" >Pexels.com</a>
 
 <br>
 <br>
 
-## By Ryan Posternak
+## *By Ryan Posternak*
+
+<br>
 
 ## Overview
 
@@ -54,3 +56,9 @@ The database for this project consists of four tables, the schema for which is p
     * 2.3: Evolution of artists, visualized
     * 2.4: Evolution of genres, visualized
     * 2.5: Correlations between `track_feature` + `duration_ms` + `followers` values
+
+<br>
+
+## Notebook 1: Data Ingestion
+
+
