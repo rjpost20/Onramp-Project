@@ -100,7 +100,7 @@ After loading the pandas `.pkl` file tables and connecting to the `spotify.db` S
 4. Average `track_feature` values by artist
    - I wrote this query because I thought it would be insightful to compare average values across artists and see what trends come up, as well as see if I can notice differences based on genre.
 5. Max and min average `track_feature` and `duration_ms` values by album
-   - This was a more complicated query that I wrote because I wanted a more granular look at which specific albums were at the extremes for each `track_feature`
+   - This was a more complicated query that I wrote because I wanted a more granular look at which specific albums were at the extremes for each `track_feature`.
 6. Proportion of `explicit` tracks by artist (measured by percent of songs marked as explicit)
    - For this query, I was simply curioius which artists had the most explicit music, and whether there was a difference between older and more contemporary artists
 7. Median `track_feature` values by artist
