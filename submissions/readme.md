@@ -70,7 +70,7 @@ This process is then repeated for the `album` table, where I obtain the albums o
 
 Next, I obtain data for the `track` table by looping through each `album_id` using the `.album_tracks()` function. The only measure I used here to prevent duplicate tracks being added is another duplicate tracks list that is checked during each loop through an album.
 
-Lastly, I obtain data for the `track_features` table for each of the tracks obtained from the last step using each `track_id`, and save the pandas tables as `.pkl` files for use in the next notebook. I use the `.audio_features` Spotipy function for this step.
+Lastly, I obtain data for the `track_features` table for each of the tracks obtained from the last step using each `track_id`, and save the pandas tables as `.pkl` files for use in the next notebook. I use the `.audio_features()` Spotipy function for this step.
 
 <br>
 
