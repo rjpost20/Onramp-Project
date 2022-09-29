@@ -61,4 +61,29 @@ The database for this project consists of four tables, the schema for which is p
 
 ## Notebook 1: Data Ingestion
 
+I begin the project by accessing my API.txt file, which is a locally-stored file that contains my API credentials to access the Spotify API. Next, I define my 20 favorite artists, loop through each name in the list of favorite artists with the Spotipy `.search()` function, and create nine separate lists (one for each column in the `artist` table) containing the compiled information for each feature. Lastly, I organize the lists into a dictionary, and create a pandas table by passing in the dictionary.
+
+This process is then repeated for the `album` table, where I obtain the albums of each artist by looping through each `artist_id` using the `.artist_albums()` function. This part is a bit more complicated than the last, as I needed to consider that duplicate albums may be pulled in the process. I implemented a variety of measures to prevent this:
+1. I record the unique album names of each artist (I use a RegEx search to remove any comments in parentheses or square brackets, e.g. "(Remastered)" or "\[Deluxe Edition]". I then check during each loop if the next album is in the duplicate albums list, and skip it if so.
+2. To avoid live-recorded albums (which would result in duplicate songs being added) I skip any album with the word "live" in it (after setting all words in the title to `.lower()` format.
+3. To avoid re-release albums, I skip any albums released after a band's lifecycle when applicable (only for older band's that are no longer producing music, e.g. The Beatles).
+
+Next, I obtain data for the `track` table by looping through each `album_id`. The only measure I used here to prevent duplicate tracks being added is another duplicate tracks list that is checked during each loop through an album.
+
+Lastly, I obtain data for the `track_features` table for each of the tracks obtained from the last step using each `track_id`, and save the pandas tables as `.pkl` files for use in the next notebook.
+
+<br>
+
+## Notebook 2: Data Transformation and Storage
+
+I begin this phase of the project by uploading the `.pkl` files containing the pandas tables. I then move on to Part 1 of Step 2 which is handling null / missing values. To start, I create a function to display the `.info()` of each table, a list of the features that contain null values, and the total number of blank values in the dataframe. As it turned out, none of the tables had any null or blank values, so this part of the project was simple.
+
+I then move on to Part 2 of Step 2 which is the deduplication phase. To begin I print each artist and a list of their album names contained in my database, and do a manual review of album names to look for duplicate/compilation/live-recorded albums. This was the only part of my project that was truly manual and non-scalable, but I didn't see any way around it as at this point I already implemented a simple duplicate name search in Step 1 and I didn't see a way to automate the deduplication process further. The difficulty in automating this process arises mainly from the fact that compilation albums often carry names that are indistinguishable from original-release studio albums.
+
+After removing the 14 albums containing duplicate songs from the albums, tracks, and track features tables, I move on to removing duplicate songs. To implement this, I search for song names in the database that appear more than once (for any particular artist). I then display a table for each artist that contains their duplicate songs, and record the relevant `track_id`s in a list to drop. One of the benefits of displaying these tables was that they allowed me to see some albums which I missed in the previous step, so I was able to go back and add those to the list of albums to drop. As an aside, the reason I couldn't skip the last manual duplicate album search step and go straight to looking for duplicate song names is that comments or notes are often added to the end of song names in duplicate albums (and not always in parentheses or brackets).
+
+Lastly, I create SQL tables with the defined schemas as specified in the instructions, fill them with the data in each associated pandas table, and put organize them under the `spotify.db` file.
+
+
+
 
