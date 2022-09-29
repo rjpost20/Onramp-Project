@@ -82,7 +82,37 @@ I then move on to Part 2 of Step 2 which is the deduplication phase. To begin I 
 
 After removing the 14 albums containing duplicate songs from the albums, tracks, and track features tables, I move on to removing duplicate songs. To implement this, I search for song names in the database that appear more than once (for any particular artist). I then display a table for each artist that contains their duplicate songs, and record the relevant `track_id`s in a list to drop. One of the benefits of displaying these tables was that they allowed me to see some albums which I missed in the previous step, so I was able to go back and add those to the list of albums to drop. As an aside, the reason I couldn't skip the last manual duplicate album search step and go straight to looking for duplicate song names is that comments or notes are often added to the end of song names in duplicate albums (and not always in parentheses or brackets).
 
-Lastly, I create SQL tables with the defined schemas as specified in the instructions, fill them with the data in each associated pandas table, and put organize them under the `spotify.db` file.
+Lastly, for Step 3 I create SQL tables with the defined schemas as specified in the instructions, fill them with the data in each associated pandas table, and put organize them under the `spotify.db` file.
+
+<br>
+
+## Notebook 3: Data Analytics and Visualizations**
+
+### Part 1: SQL Query Analytics
+
+After loading the pandas `.pkl` file tables and connecting to the `spotify.db` SQLite database, I begin the SQL queries which comprise Part 1 of Step 4. The queries are:
+1. Top 10 songs by artist in terms of `duration_ms`
+   - Per instructions
+2. Top 20 artists in the database by number of `followers`
+   - Per instructions
+3. Top 10 songs by artist in terms of `tempo`
+   - Per instructions
+4. Average `track_feature` values by artist
+   - I wrote this query because I thought it would be insightful to compare average values across artists and see what trends come up, as well as see if I can notice differences based on genre.
+5. Max and min average `track_feature` and `duration_ms` values by album
+   - This was a more complicated query that I wrote because I wanted a more granular look at which specific albums were at the extremes for each `track_feature`
+6. Proportion of `explicit` tracks by artist (measured by percent of songs marked as explicit)
+   - For this query, I was simply curioius which artists had the most explicit music, and whether there was a difference between older and more contemporary artists
+7. Median `track_feature` values by artist
+   - This is very similar to query 4, but querying median values instead of average values. There is no 'median' function in SQLite, so I had to do quite a few joins and window functions to make it work. The motivation for this query was actually my second visualization, which showed me that a handful of the `track_features` had highly skewed distributions, so computing averages for those values would not be as representative as the median.
+
+
+
+
+
+
+
+
 
 
 
